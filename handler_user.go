@@ -97,20 +97,3 @@ func handlerUsers(s *state, cmd command) error {
 
 	return nil
 }
-
-func handlerAgg(s *state, cmd command) error {
-	if len(cmd.Args) != 0 {
-		return fmt.Errorf("usage: %s", cmd.Name)
-	}
-
-	ctx := context.Background()
-
-	feed, err := fetchFeed(ctx, "https://www.wagslane.dev/index.xml")
-	if err != nil {
-		return err
-	}
-
-	fmt.Printf("%+v\n", feed)
-
-	return nil
-}
